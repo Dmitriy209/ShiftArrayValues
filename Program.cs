@@ -31,6 +31,7 @@ namespace ShiftArrayValues
             else if (shift > numbers.Length)
             {
                 int difference = shift % numbers.Length;
+                shift = difference;
             }
 
             for (int i = 0; i < shift; i++)
