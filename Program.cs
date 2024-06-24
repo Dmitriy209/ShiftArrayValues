@@ -24,15 +24,8 @@ namespace ShiftArrayValues
             Console.WriteLine("Введите значение сдвига влево:");
             int shift = Convert.ToInt32(Console.ReadLine());
 
-            if (shift == numbers.Length)
-            {
-                shift = 0;
-            }
-            else if (shift > numbers.Length)
-            {
-                int difference = shift % numbers.Length;
-                shift = difference;
-            }
+            int difference = shift % numbers.Length;
+            shift = difference;
 
             for (int i = 0; i < shift; i++)
             {
