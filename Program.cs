@@ -6,10 +6,9 @@ namespace ShiftArrayValues
     {
         static void Main(string[] args)
         {
-            int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             int tempNumber;
-            int startNumber;
             int lastNumber;
 
             int lastIndex = numbers.Length - 1;
@@ -25,11 +24,24 @@ namespace ShiftArrayValues
             Console.WriteLine("Введите значение сдвига влево:");
             int shift = Convert.ToInt32(Console.ReadLine());
 
+            if (shift == numbers.Length)
+            {
+                shift = 0;
+            }
+            else if (shift > numbers.Length)
+            {
+                int difference = shift / numbers.Length;
+
+                for (int i = 0; i < difference; i++)
+                {
+                    shift -= numbers.Length;
+                }
+            }
+
             for (int i = 0; i < shift; i++)
             {
-                startNumber = numbers[0];
                 lastNumber = numbers[lastIndex];
-                numbers[lastIndex] = startNumber;
+                numbers[lastIndex] = numbers[0];
 
                 for (int j = 0; j < lastIndex - 1; j++)
                 {
